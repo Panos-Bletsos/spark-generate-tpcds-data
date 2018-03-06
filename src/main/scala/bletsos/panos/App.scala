@@ -18,7 +18,7 @@ object App {
     // root directory of location to create data in.
     val rootDir = conf.getString("rootDir")
     // name of database to create.
-    val databaseName = "tpcdsParquet"
+    val databaseName = conf.getString("databaseName")
     // scaleFactor defines the size of the dataset to generate (in GB).
     val scaleFactor = conf.getString("scaleFactor")
     // valid spark format like parquet "parquet".
