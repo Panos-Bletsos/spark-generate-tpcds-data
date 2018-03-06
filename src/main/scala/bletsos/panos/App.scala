@@ -40,7 +40,6 @@ object App {
       tableFilter = "", // "" means generate all tables
       numPartitions = 100) // how many dsdgen partitions to run - number of input tasks.
 
-    tables.createExternalTables(
-      rootDir, "parquet", databaseName, overwrite = true, discoverPartitions = true)
+    tables.createTemporaryTables(rootDir, format)
   }
 }
