@@ -13,6 +13,7 @@ object App {
       .builder()
       .master(conf.getString("spark.master"))
       .appName("generate-tpcds-data")
+      .enableHiveSupport()
       .getOrCreate()
 
     // root directory of location to create data in.
@@ -40,6 +41,7 @@ object App {
       tableFilter = "", // "" means generate all tables
       numPartitions = 100) // how many dsdgen partitions to run - number of input tasks.
 
-    tables.createTemporaryTables(rootDir, format)
+    tables.createExternalTables(
+      rootDir, "parquet", databaseName, overwrite = true, discoverPartitions = true)
   }
 }
