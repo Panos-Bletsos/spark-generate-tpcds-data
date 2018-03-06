@@ -16,7 +16,7 @@ object App {
       .getOrCreate()
 
     // root directory of location to create data in.
-    val rootDir = "/Users/nospa/thesis/tpcds-parquet"
+    val rootDir = conf.getString("rootDir")
     // name of database to create.
     val databaseName = "tpcdsParquet"
     // scaleFactor defines the size of the dataset to generate (in GB).
