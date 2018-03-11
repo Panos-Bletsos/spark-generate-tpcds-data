@@ -43,5 +43,7 @@ object App {
 
     tables.createExternalTables(
       rootDir, "parquet", databaseName, overwrite = true, discoverPartitions = true)
+
+    tables.analyzeTables(databaseName, analyzeColumns = true)
   }
 }
