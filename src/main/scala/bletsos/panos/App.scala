@@ -41,6 +41,8 @@ object App {
       tableFilter = "", // "" means generate all tables
       numPartitions = 100) // how many dsdgen partitions to run - number of input tasks.
 
+    spark.sql(s"create database if not exists $databaseName")
+
     tables.createExternalTables(
       rootDir, "parquet", databaseName, overwrite = true, discoverPartitions = true)
 
