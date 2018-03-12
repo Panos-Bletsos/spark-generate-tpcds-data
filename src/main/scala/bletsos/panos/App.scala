@@ -11,7 +11,6 @@ object App {
 
     val spark: SparkSession = SparkSession
       .builder()
-      .master(conf.getString("spark.master"))
       .appName("generate-tpcds-data")
       .enableHiveSupport()
       .getOrCreate()
