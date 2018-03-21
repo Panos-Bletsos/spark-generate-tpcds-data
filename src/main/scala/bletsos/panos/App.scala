@@ -43,7 +43,7 @@ object App {
     spark.sql(s"create database if not exists $databaseName")
 
     tables.createExternalTables(
-      rootDir, "parquet", databaseName, overwrite = true, discoverPartitions = true)
+      rootDir, "parquet", databaseName, overwrite = true, discoverPartitions = false)
 
     tables.analyzeTables(databaseName, analyzeColumns = true)
   }
