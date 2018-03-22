@@ -12,6 +12,7 @@ object App {
     val spark: SparkSession = SparkSession
       .builder()
       .appName("generate-tpcds-data")
+      .config("spark.sql.warehouse.dir", conf.getString("warehouseLocation"))
       .enableHiveSupport()
       .getOrCreate()
 
